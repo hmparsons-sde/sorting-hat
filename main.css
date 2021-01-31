@@ -9,7 +9,8 @@ body {
 
 #name-form {
   margin: auto;
-  width: 40%;
+  width: 50%;
   border: 1px solid teal;
   padding: 25px;
+  display: none;
 }

@@ -4,7 +4,6 @@ const sortingHouses = ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"];
 const sortedWizards = [];
 const oustedWizards = [];
 
-const startSorting = document.getElementById("startBtn");
 const sortButton = document.getElementById("sortBtn");
 const name = document.getElementById("name");
 
@@ -15,16 +14,15 @@ function printToDom(divId, textToPrint) {
   selectedDiv.innerHTML = textToPrint;
 };
 
-// MAKE FORM APPEAR UPON CLICKING SORTING BUTTON - target the visibility of the entire form element.
+// MAKE FORM APPEAR UPON CLICKING SORTING BUTTON - Toggle Hide/Show
 
-const hiddenSortingForm = (array) => {
-  document.getElementById("name-form").style.visibility = "hidden";
-};
-
-// In this project, I'm using visibility, rather than display, so that the layout is affected. I want each div to appear in cascading order.
-
-const sortFormAppear = (array) => {
-  document.getElementById("name-form").style.visibility = "visible"; 
+function sortFormAppear() {
+  const form = document.getElementById("name-form");
+  if (form.style.display === "none") {
+    form.style.display = "block";
+  } else {
+    form.style.display = "none";
+  }
 };
 
 // SORT BUTTON CLICK RESULTS IN:
