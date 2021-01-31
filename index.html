@@ -27,9 +27,11 @@
 <!-- SORTING FORM -->
 
 <div class="form-group">
-  <form id="name-form">
-      <input type="text" class="form-control mt-4" id="name" placeholder="I demand a name." required />
-      <button id="sortBtn" type="button" class="btn btn-outline-info btn-lg d-grid gap-2 col-6 mx-auto mt-4 mb-4">Give Me A House</button>
+  <form id="sortingForm" class="needs-validation" novalidate>
+      <input type="text" class="form-control mt-4" id="studentName" placeholder="I demand a name." required />
+      <button id="sortBtn" type="button" class="btn btn-outline-info btn-lg d-grid gap-2 col-6 mx-auto mt-4 mb-4" onclick="studentCard()">Give Me A House</button>
+      <div class="valid-feedback"></div>
+      <div class="invalid-feedback">Not so swiftly!</div>
   </form>
 </div>
 
