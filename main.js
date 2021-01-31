@@ -4,9 +4,6 @@ const sortingHouses = ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"];
 const sortedWizards = [];
 const oustedWizards = [];
 
-const sortButton = document.getElementById("sortBtn");
-const name = document.getElementById("name");
-
 // PRINT TO DOM - I am targeting HTML elements through JS. printToDom is reusable and will make the function results appear on screen.
 
 function printToDom(divId, textToPrint) {
@@ -17,7 +14,7 @@ function printToDom(divId, textToPrint) {
 // MAKE FORM APPEAR UPON CLICKING SORTING BUTTON - Toggle Hide/Show
 
 function sortFormAppear() {
-  const form = document.getElementById("name-form");
+  const form = document.getElementById("sortingForm");
   if (form.style.display === "none") {
     form.style.display = "block";
   } else {
@@ -25,13 +22,54 @@ function sortFormAppear() {
   }
 };
 
-// SORT BUTTON CLICK RESULTS IN:
-// 1. CLEARED FORM
+// GENERATE STUDENT CARD
 
-// 2. CARD APPEARS
+const iNeedAName = () => {
+  let domString = ``;
+  domString += `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Not So Fast!</strong> I said I need a name!!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>`
+  printToDom("iNeedAName", domString);
+};
 
-// 3. GENERATE CARD WITH STUDENT NAME + RANDOMLY ASSIGNED HOUSE
+// ASSIGN ID TO EACH STUDENT - incrementer function
 
-// 4. DELETE FUNCTIONALITY
+let studentId = 0;
+
+function increment() {
+  studentId++;
+  return studentId;
+}
+
+//GENERATE STUDENT CARD
+
+const sortButton = document.getElementById("sortBtn");
+
+const studentCard = (e) => { 
+    e.preventDefault();
+      if (studentName === '') {
+        iNeedAName();
+      } else {
+        const name = document.getElementById("studentName").value;
+        const house = sortingHouses[Math.floor(Math.random() * sortingHouses.length)];
+        const studentId = increment();
+        const newStudentCard = {
+          name,
+          house,
+          studentId,
+        }
+      sortedWizards.push(newStudentCard);
+      }
+  document.querySelector("sortingForm").reset();
+};
+
+sortButton.addEventListener("click", studentCard);
+
+// LOOP THROUGH SORTED WIZARDS
+
+
+
+// DELETE FUNCTIONALITY
 
 // INITIALIZE + CALL FUNCTION
