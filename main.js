@@ -4,9 +4,6 @@ const sortingHouses = ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"];
 const sortedWizards = [];
 const oustedWizards = [];
 
-// const sortButton = document.getElementById("sortBtn"); -saving for future use
-// const name = document.getElementById("name");
-
 // PRINT TO DOM - I am targeting HTML elements through JS. printToDom is reusable and will make the function results appear on screen.
 
 function printToDom(divId, textToPrint) {
