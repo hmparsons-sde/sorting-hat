@@ -51,6 +51,7 @@ function increment() {
 const sortButton = document.getElementById("sortBtn");
 
 const pushStudentToArray = (e) => {
+  e.preventDefault();
   if (studentName === "") {
     iNeedAName();
   } else {
@@ -76,15 +77,14 @@ const pushStudentToArray = (e) => {
       newStudentCard.imageUrl = "https://user-images.githubusercontent.com/67122062/106535527-0676a480-64bc-11eb-9bc4-0c55da1bc506.jpg"
       document.getElementById("sorted-student-card-container").style.backgroundColor = "green";
     }
-    sortedWizards.push(newStudentCard);
   }
-  document.querySelector("#sortingForm").reset();
+  sortedWizards.push(newStudentCard);
 };
 
 // LOOP THROUGH SORTED WIZARDS
 
 const generateNewStudentCard = (studentObj) => {
-  let domString = " ";
+  let domString = "";
     studentObj.forEach((item, i) => {
       domString += `<div class="card" style="width: 18rem;">
         <div class="card-image my-2><img src=${studentObj[i].imageUrl} class="card-img-top" alt="Hogwarts House Crest"></div>
@@ -96,10 +96,24 @@ const generateNewStudentCard = (studentObj) => {
       </div>`;
     })
   printToDom("#sortedWizards", domString);
+  generateNewStudentCard(sortedWizards);
+  document.querySelector("#sortingForm").reset();
 };
 
 sortButton.addEventListener("click", () => pushStudentToArray());
 
+// BUTTON EVENTS
+
 // DELETE FUNCTIONALITY
+
+const expelNaughtyWizard = (e) => {
+  const targetType = e.target.type;
+  const targetId = e.target.id;
+
+  if (targetType === "button") {
+    sortedWizards.splice(targetId, 1);
+    generateNewStudentCard(sortedWizards);
+  }
+};
 
 // INITIALIZE + CALL FUNCTION

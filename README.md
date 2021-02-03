@@ -27,3 +27,5 @@ The user (ostensibly a Harry Potter fan) can enter their name into the sorting f
 **LOOM VIDEO**
 
 **NETLIFY APP**
+
+https://hmp-sorting-hat.netlify.app/
