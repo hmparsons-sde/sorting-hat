@@ -28,12 +28,12 @@ const sortFormAppear = () => {
 
 const iNeedAName = () => {
   let domString = ``;
-  domString += `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  domString += `<div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
         <strong>Not So Fast!</strong> I said I need a name!!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>`;
   console.log(domString)
-  printToDom(".invalid-feedback", domString);
+  printToDom("#alert", domString);
 };
 
 //GENERATE STUDENT CARD
@@ -51,6 +51,22 @@ const generateNewStudentCard = (studentObj) => {
       </div>`;
     })
   printToDom("#sortedWizards", domString);
+};
+
+const handleButtonClick = (e) => {
+  const buttonId = e.target.id;
+
+  if (buttonId === "sortBtn") {
+    document.querySelector("#form").innerHTML = 
+      `<div class="form-group">
+        <form id="sortingForm" class="needs-validation" novalidate>
+            <input type="text" class="form-control" id="studentName" placeholder="I demand a name." required />
+            <button id="sortBtn" type="button" class="btn btn-outline-info btn-lg d-grid gap-2 col-6 mx-auto mt-4 mb-4">Give Me A House</button>
+        </form>
+      </div>`
+
+  document.querySelector("#sortBtn").addEventListener("click", generateNewStudentCard);
+  }
 };
 
 const getFormInfo = (e) => {
@@ -100,6 +116,11 @@ const expelNaughtyWizard = (e) => {
 };
 
 // INITIALIZE + CALL FUNCTION
+
+const buttonEvents = () => {
+  document.querySelector("#sortBtn").addEventListener("click", handleButtonClick);
+  document.querySelector("#students").addEventListener("click", expelNaughtyWizard);
+};
 
 const init = () => {
    buttonEvents();
