@@ -3,20 +3,19 @@
 const sortingHouses = ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"];
 const sortedWizards = [];
 const oustedWizards = [];
+const sortButton = document.getElementById("sortBtn");
 
 // PRINT TO DOM - I am targeting HTML elements through JS. printToDom is reusable and will make the function results appear on screen.
 
-function printToDom(divId, textToPrint) {
+const printToDom = (divId, textToPrint) => {
   console.log(divId)
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
 }
 
-const studentName = document.getElementById("studentName").value;
-
 // MAKE FORM APPEAR UPON CLICKING SORTING BUTTON - Toggle Hide/Show
 
-function sortFormAppear() {
+const sortFormAppear = () => {
   const form = document.getElementById("sortingForm");
   if (form.style.display === "none") {
     form.style.display = "block";
@@ -37,31 +36,38 @@ const iNeedAName = () => {
   printToDom(".invalid-feedback", domString);
 };
 
-// ASSIGN ID TO EACH STUDENT - increment function
-
-let studentId = 0;
-
-function increment() {
-  studentId++;
-  return studentId;
-}
-
 //GENERATE STUDENT CARD
 
-const sortButton = document.getElementById("sortBtn");
+const generateNewStudentCard = (studentObj) => {
+  let domString = " ";
+    studentObj.forEach((item, i) => {
+      domString += `<div class="card" style="width: 18rem;">
+        <div class="card-image my-2><img src=${studentObj[i].imageUrl} class="card-img-top" alt="Hogwarts House Crest"></div>
+        <div class="card-body">
+          <h5 class="card-title">${studentObj[i].house}</h5>
+          <p class="card-text">${studentObj[i].name}</p>
+          <button type="button" class="btn btn-outline-danger" id="${studentObj[i].studentId}">EXPEL</button>
+        </div>
+      </div>`;
+    })
+  printToDom("#sortedWizards", domString);
+};
 
-const pushStudentToArray = (e) => {
+const getFormInfo = (e) => {
   if (studentName === "") {
     iNeedAName();
   } else {
     const name = document.getElementById("studentName").value;
     const house =
       sortingHouses[Math.floor(Math.random() * sortingHouses.length)];
-    const studentId = increment();
-    const newStudentCard = {
-      name: name,
-      house: house,
-      studentId: studentId,
+      const studentId = students
+        .map((student) => student.id)
+        .sort((a, b) => a - b);
+      const id = studentId.length ? studentIds[studentId.length - 1] + 1 : 1;
+      const newStudentCard = {
+        name,
+        house,
+        id,
     };
     if (newStudentCard.house === "HufflePuff") {
       newStudentCard.imageUrl = "https://user-images.githubusercontent.com/67122062/106535473-e9da6c80-64bb-11eb-80f4-c73dfdf8af9c.png"
@@ -81,25 +87,23 @@ const pushStudentToArray = (e) => {
   document.querySelector("#sortingForm").reset();
 };
 
-// LOOP THROUGH SORTED WIZARDS
-
-const generateNewStudentCard = (studentObj) => {
-  let domString = " ";
-    studentObj.forEach((item, i) => {
-      domString += `<div class="card" style="width: 18rem;">
-        <div class="card-image my-2><img src=${studentObj[i].imageUrl} class="card-img-top" alt="Hogwarts House Crest"></div>
-        <div class="card-body">
-          <h5 class="card-title">${studentObj[i].house}</h5>
-          <p class="card-text">${studentObj[i].name}, first year number: ${studentObj[i].studentId}</p>
-          <button type="button" class="btn btn-outline-danger">EXPEL</button>
-        </div>
-      </div>`;
-    })
-  printToDom("#sortedWizards", domString);
-};
-
-sortButton.addEventListener("click", () => pushStudentToArray());
-
 // DELETE FUNCTIONALITY
 
+const expelNaughtyWizard = (e) => {
+  const targetId = e.target.id;
+
+  if (targetType === "expelBtn") {
+    sortedWizards.splice(targetId, 1);
+    oustedWizards.push(targetId)
+    generateNewStudentCard(sortedWizards);
+  }
+};
+
 // INITIALIZE + CALL FUNCTION
+
+const init = () => {
+   buttonEvents();
+   generateNewStudentCard(sortedWizards);
+};
+
+init();
