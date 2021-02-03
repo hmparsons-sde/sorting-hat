@@ -17,12 +17,12 @@ const printToDom = (divId, textToPrint) => {
 
 const sortFormAppear = () => {
   const form = document.getElementById("sortingForm");
-  if (form.style.display === "none") {
+  if (form.style.display === "block") {
     form.style.display = "block";
   } else {
     form.style.display = "none";
   }
-}
+};
 
 // ERROR FOR BLANK FORM 
 
@@ -46,7 +46,7 @@ const generateNewStudentCard = (studentObj) => {
         <div class="card-body">
           <h5 class="card-title">${studentObj[i].house}</h5>
           <p class="card-text">${studentObj[i].name}</p>
-          <button type="button" class="btn btn-outline-danger" id="${studentObj[i].studentId}">EXPEL</button>
+          <button type="button" class="btn btn-outline-danger" id="${studentObj[i].studentId}" id="expelBtn">EXPEL</button>
         </div>
       </div>`;
     })
@@ -119,6 +119,7 @@ const expelNaughtyWizard = (e) => {
 
 const buttonEvents = () => {
   document.querySelector("#sortBtn").addEventListener("click", handleButtonClick);
+  document.querySelector("#expelBtn").addEventListener("click", handleButtonClick);
   document.querySelector("#students").addEventListener("click", expelNaughtyWizard);
 };
 
