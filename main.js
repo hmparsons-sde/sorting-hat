@@ -1,8 +1,11 @@
-// SET CONSTANTS FOR FUTURE FUNCTIONS
+// SET ARRAY CONSTANTS
 
 const sortingHouses = ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"];
 const sortedWizards = [];
 const oustedWizards = [];
+const sortButton = document.getElementById("sortBtn");
+const expelButton = document.getElementById("expelBtn");
+const name = document.querySelector("#studentName").value;
 
 // PRINT TO DOM - I am targeting HTML elements through JS. printToDom is reusable and will make the function results appear on screen.
 
@@ -11,8 +14,6 @@ function printToDom(divId, textToPrint) {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = textToPrint;
 }
-
-const studentName = document.getElementById("studentName").value;
 
 // MAKE FORM APPEAR UPON CLICKING SORTING BUTTON - Toggle Hide/Show
 
@@ -28,41 +29,30 @@ function sortFormAppear() {
 // ERROR FOR BLANK FORM 
 
 const iNeedAName = () => {
-  let domString = ``;
+  let domString = "";
   domString += `<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Not So Fast!</strong> I said I need a name!!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>`;
-  console.log(domString)
+  console.log(domString);
   printToDom(".invalid-feedback", domString);
 };
 
-// ASSIGN ID TO EACH STUDENT - increment function
-
-let studentId = 0;
-
-function increment() {
-  studentId++;
-  return studentId;
-}
-
-//GENERATE STUDENT CARD
-
-const sortButton = document.getElementById("sortBtn");
+// LOOP THROUGH SORTED WIZARDS
 
 const pushStudentToArray = (e) => {
   e.preventDefault();
-  if (studentName === "") {
+  const studentId = students.map(student => student.id).sort((a, b) => a - b);
+//Borrowed from Dani's help ticket ^^ creating index and sorting low-high
+  const id = studentId.length ? studentId[studentId.length - 1] + 1 : 1;
+  const house = sortingHouses[Math.floor(Math.random() * sortingHouses.length)];
+  if (name === "") {
     iNeedAName();
   } else {
-    const name = document.getElementById("studentName").value;
-    const house =
-      sortingHouses[Math.floor(Math.random() * sortingHouses.length)];
-    const studentId = increment();
     const newStudentCard = {
-      name: name,
-      house: house,
-      studentId: studentId,
+      name,
+      house,
+      id,
     };
     if (newStudentCard.house === "HufflePuff") {
       newStudentCard.imageUrl = "https://user-images.githubusercontent.com/67122062/106535473-e9da6c80-64bb-11eb-80f4-c73dfdf8af9c.png"
@@ -79,9 +69,11 @@ const pushStudentToArray = (e) => {
     }
   }
   sortedWizards.push(newStudentCard);
+  generateNewStudentCard(studentId);
+  document.querySelector("#sortingForm").reset();
 };
 
-// LOOP THROUGH SORTED WIZARDS
+//SPIT OUT NEW STUDENT CARD & ASSIGN ID
 
 const generateNewStudentCard = (studentObj) => {
   let domString = "";
@@ -90,30 +82,62 @@ const generateNewStudentCard = (studentObj) => {
         <div class="card-image my-2><img src=${studentObj[i].imageUrl} class="card-img-top" alt="Hogwarts House Crest"></div>
         <div class="card-body">
           <h5 class="card-title">${studentObj[i].house}</h5>
-          <p class="card-text">${studentObj[i].name}, first year number: ${studentObj[i].studentId}</p>
-          <button type="button" class="btn btn-outline-danger">EXPEL</button>
+          <p class="card-text">${studentObj[i].name}, first year number: ${studentObj[i].id}</p>
+          <button type="button" class="btn btn-outline-danger" id="expelBtn">EXPEL</button>
         </div>
       </div>`;
     })
-  printToDom("#sortedWizards", domString);
-  generateNewStudentCard(sortedWizards);
-  document.querySelector("#sortingForm").reset();
-};
+    printToDom("#sortedWizards", domString);
+    sortButton.addEventListener("click", pushStudentToArray);
+  };
 
-sortButton.addEventListener("click", () => pushStudentToArray());
+// BUTTON EVENTS & SORT
 
-// BUTTON EVENTS
+const handleButtonClick = (e) => {
+  const buttonId = e.target.id;
+  const filteredWizards = [];
 
-// DELETE FUNCTIONALITY
+  for (let i = 0; i < sortedWizards.length; i++) {
+    if (buttonId === "All" || sortedWizards[i].house === buttonId) { //If All button is clicked, show all; if id is not All, follow second for loop
+      filteredWizards.push(sortedWizards[i])
+    }
+  }
+
+  for (let j = 0; j < filteredWizards.length; j++) {
+    generateNewStudentCard(filteredWizards[i])
+  }
+}
+
+// EXPEL FUNCTIONALITY - I need to move the student card to a different array, not delete the card altogether.
 
 const expelNaughtyWizard = (e) => {
-  const targetType = e.target.type;
   const targetId = e.target.id;
 
-  if (targetType === "button") {
+  if (targetType === "expelBtn") {
     sortedWizards.splice(targetId, 1);
+    oustedWizards.push(targetId)
     generateNewStudentCard(sortedWizards);
   }
 };
 
-// INITIALIZE + CALL FUNCTION
+// BUTTON EVENTS
+
+// const buttonEvents = () => {
+//   document.querySelector("#All").addEventListener("click", handleButtonClick);
+//   document.querySelector("#Hufflepuff").addEventListener("click", handleButtonClick);
+//   document.querySelector("#Ravenclaw").addEventListener("click", handleButtonClick);
+//   document.querySelector("#Gryffindor").addEventListener("click", handleButtonClick);
+//   document.querySelector("#Slytherin").addEventListener("click", handleButtonClick);
+  
+//   document.querySelector("#expelBtn").addEventListener("click", expelNaughtyWizard);
+// };
+
+// // INITIALIZE + CALL FUNCTION
+
+// const init = () => {
+//   buttonEvents();
+//   generateNewStudentCard(sortedWizards);
+// }
+
+// init();
+//I broke something
