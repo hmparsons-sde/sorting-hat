@@ -1,3 +1,8 @@
+**TEMPORARY ALERT**
+
+I made the mistake of pushing a lot of code at once. I cannot, for the life of me, find where I screwed up. I am starting from scratch and pushing incrementally:
+https://github.com/hmparsons-sde/nuclear-sorting-hat
+
 **NAME OF PROJECT**
 
 Hogwarts House Sorting Hat
