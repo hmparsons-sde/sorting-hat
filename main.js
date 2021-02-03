@@ -119,8 +119,7 @@ const expelNaughtyWizard = (e) => {
 
 const buttonEvents = () => {
   document.querySelector("#sortBtn").addEventListener("click", handleButtonClick);
-  document.querySelector("#expelBtn").addEventListener("click", handleButtonClick);
-  document.querySelector("#students").addEventListener("click", expelNaughtyWizard);
+  document.querySelector("#expelBtn").addEventListener("click", expelNaughtyWizard);
 };
 
 const init = () => {
