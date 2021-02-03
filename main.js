@@ -57,7 +57,7 @@ const handleButtonClick = (e) => {
   const buttonId = e.target.id;
 
   if (buttonId === "sortBtn") {
-    document.querySelector("#form").innerHTML = 
+    document.querySelector("#sortingForm").innerHTML = 
       `<div class="form-group">
         <form id="sortingForm" class="needs-validation" novalidate>
             <input type="text" class="form-control" id="studentName" placeholder="I demand a name." required />
@@ -87,16 +87,16 @@ const getFormInfo = (e) => {
     };
     if (newStudentCard.house === "HufflePuff") {
       newStudentCard.imageUrl = "https://user-images.githubusercontent.com/67122062/106535473-e9da6c80-64bb-11eb-80f4-c73dfdf8af9c.png"
-      document.getElementById("sorted-student-card-container").style.backgroundColor = "yellow";
+      document.getElementById("students").style.backgroundColor = "yellow";
     } else if (newStudentCard.house === "Ravenclaw") {
       newStudentCard.imageUrl = "https://user-images.githubusercontent.com/67122062/106535483-ef37b700-64bb-11eb-82ee-08823f3db550.jpg"
-      document.getElementById("sorted-student-card-container").style.backgroundColor = "royalblue";
+      document.getElementById("students").style.backgroundColor = "royalblue";
     } else if (newStudentCard.house === "Gryffindor") {
       newStudentCard.imageUrl = "https://user-images.githubusercontent.com/67122062/106535478-ec3cc680-64bb-11eb-95c3-72476a86e647.png"
-      document.getElementById("sorted-student-card-container").style.backgroundColor = "crimson";
+      document.getElementById("students").style.backgroundColor = "crimson";
     } else if (newStudentCard.house === "Slytherin") {
       newStudentCard.imageUrl = "https://user-images.githubusercontent.com/67122062/106535527-0676a480-64bc-11eb-9bc4-0c55da1bc506.jpg"
-      document.getElementById("sorted-student-card-container").style.backgroundColor = "green";
+      document.getElementById("students").style.backgroundColor = "green";
     }
     sortedWizards.push(newStudentCard);
   }
