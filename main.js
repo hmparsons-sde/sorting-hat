@@ -102,7 +102,7 @@ const getFormInfo = (e) => {
     obj.crest =
       "https://user-images.githubusercontent.com/67122062/106535527-0676a480-64bc-11eb-9bc4-0c55da1bc506.jpg";
   }
-
+  
   //Moved this down here - it did not work when I had it as a standalone.
 
   if (name.length === 0) {
