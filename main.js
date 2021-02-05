@@ -27,9 +27,9 @@ const buttonEvents = () => {
 const showForm = () => {
   let form = `<form class="form">
         <div>
-          <input type="text" class="form-control text-center" id="wizardName" placeholder="I REQUIRE A NAME" required>
+          <input type="text" class="form-control text-center my-1" id="wizardName" placeholder="I REQUIRE A NAME" required>
         </div>
-          <button type="submit" class="btn btn-secondary btn-lg" id="sortButton">TO YOUR HOUSE!</button>
+          <button type="submit" class="btn btn-secondary btn-lg my-4" id="sortButton">TO YOUR HOUSE!</button>
         </form>`;
   printToDom("#sortForm", form);
   document.querySelector("#sortButton").addEventListener("click", getFormInfo);
@@ -38,7 +38,7 @@ const showForm = () => {
 //I originally had a much bigger block of code for this alert function - found that it works better and is cleaner this way.
 
 const iNeedAName = () => {
-  let alert = `<h6 class="text-secondary">GIRL, I NEED YOUR NAME FIRST!</h6>`;
+  let alert = `<h6 class="text-secondary mb-4">GIRL, I NEED YOUR NAME FIRST!</h6>`;
   printToDom("#alert", alert);
 };
 
