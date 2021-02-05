@@ -23,10 +23,11 @@ The user (ostensibly a Harry Potter fan) can enter their name into the sorting f
 
 **SCREENSHOTS**
 
-![final sorting hat](https://user-images.githubusercontent.com/67122062/107063992-a5dbb600-67a0-11eb-8bfe-c7b9c36c1b2b.png)
-![blank form alert](https://user-images.githubusercontent.com/67122062/107064028-affdb480-67a0-11eb-91e4-7e83314b5396.png)
-![final student card](https://user-images.githubusercontent.com/67122062/107064051-b429d200-67a0-11eb-83b8-240591dd0dde.png)
-![expelled final](https://user-images.githubusercontent.com/67122062/107064067-b7bd5900-67a0-11eb-9cc8-bc41f07ffbbd.png)
+![curlyfont home page](https://user-images.githubusercontent.com/67122062/107096490-83fa2780-67d0-11eb-8bfd-94d8fb8c2580.png)
+![curlyfont name form](https://user-images.githubusercontent.com/67122062/107096497-88bedb80-67d0-11eb-9bbe-4b3d78961fc7.png)
+![curlyfont student card](https://user-images.githubusercontent.com/67122062/107096520-92484380-67d0-11eb-8f56-c9875d774314.png)
+![curlyfont expel](https://user-images.githubusercontent.com/67122062/107096528-95dbca80-67d0-11eb-8681-9bc52b8f06ff.png)
+![curlyfont alert](https://user-images.githubusercontent.com/67122062/107096534-983e2480-67d0-11eb-9043-ed7669d534b6.png)
 
 **LOOM VIDEO**
 
