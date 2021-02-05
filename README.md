@@ -31,7 +31,7 @@ The user (ostensibly a Harry Potter fan) can enter their name into the sorting f
 
 **LOOM VIDEO**
 
-https://www.loom.com/share/3b3be458278b451ba78d9087a5b96a80
+https://www.loom.com/share/706e5617328d4d368a55d42adc5febbe
 
 **NETLIFY APP**
 
