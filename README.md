@@ -23,10 +23,10 @@ The user (ostensibly a Harry Potter fan) can enter their name into the sorting f
 
 **SCREENSHOTS**
 
-![homepage](https://user-images.githubusercontent.com/67122062/106985927-f666fb00-672f-11eb-910d-266b708ffc3f.png)
-![Name Form with alert activated](https://user-images.githubusercontent.com/67122062/106985939-fa931880-672f-11eb-86c4-9f6a5c4a3b73.png)
-![student-card](https://user-images.githubusercontent.com/67122062/106985970-08489e00-6730-11eb-8122-1a086eeaf61e.png)
-![expelled-card](https://user-images.githubusercontent.com/67122062/106985976-0bdc2500-6730-11eb-8a5d-d0df2341a3d3.png)
+![final sorting hat](https://user-images.githubusercontent.com/67122062/107063992-a5dbb600-67a0-11eb-8bfe-c7b9c36c1b2b.png)
+![blank form alert](https://user-images.githubusercontent.com/67122062/107064028-affdb480-67a0-11eb-91e4-7e83314b5396.png)
+![final student card](https://user-images.githubusercontent.com/67122062/107064051-b429d200-67a0-11eb-83b8-240591dd0dde.png)
+![expelled final](https://user-images.githubusercontent.com/67122062/107064067-b7bd5900-67a0-11eb-9cc8-bc41f07ffbbd.png)
 
 **LOOM VIDEO**
 
