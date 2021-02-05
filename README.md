@@ -23,6 +23,11 @@ The user (ostensibly a Harry Potter fan) can enter their name into the sorting f
 
 **SCREENSHOTS**
 
+![homepage](https://user-images.githubusercontent.com/67122062/106985927-f666fb00-672f-11eb-910d-266b708ffc3f.png)
+![Name Form with alert activated](https://user-images.githubusercontent.com/67122062/106985939-fa931880-672f-11eb-86c4-9f6a5c4a3b73.png)
+![student-card](https://user-images.githubusercontent.com/67122062/106985970-08489e00-6730-11eb-8122-1a086eeaf61e.png)
+![expelled-card](https://user-images.githubusercontent.com/67122062/106985976-0bdc2500-6730-11eb-8a5d-d0df2341a3d3.png)
+
 **LOOM VIDEO**
 
 **NETLIFY APP**
