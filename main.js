@@ -42,7 +42,7 @@ const sortFormAppear = () => {
 const generateNewStudentCard = (arr) => {
   let domString = "";
   for (let [i, element] of arr.entries()) {
-    //I chose for/of to iterate over the array and to return the key value pairs that I defined in as a card.
+//I chose for/of to iterate over the array and to return the key value pairs that I defined as a card.
     domString += `<div class="card ${element.house}" style="width: 18rem; id=${i}">
       <img src="${element.crest}" class="card-img-top cardImg" alt="${element.house}">
         <div class="card-body text-center">
@@ -64,8 +64,8 @@ const iNeedAName = () => {
   printToDom("#alert", alert);
 };
 
-//Referred to both the pie site & the pet adoption site.
-//The block below takes the that card template above and manipulates what happens to it in every instance.
+//Referred to both the pie site & the pet adoption site for data structure.
+//The block below takes the card template above and manipulates what happens to it in every instance.
 
 const getFormInfo = (e) => {
   e.preventDefault(); //Prevents auto-refresh
@@ -75,10 +75,11 @@ const getFormInfo = (e) => {
   const crest = "";
 
   const studentIds = students
-    .map((student) => student.id)
-    .sort((a, b) => a - b); //sorts srudents by ascending order of index
+    .map((student) => student.id) //extracts array of students
+    .sort((a, b) => a - b); //sorts students (from the mapped array) by ascending order of index
 
-  const id = studentIds.length ? studentIds[studentIds.length - 1] + 1 : 1; //ternary operator increments the id by one.
+  const id = studentIds.length ? studentIds[studentIds.length - 1] + 1 : 1; //ternary operator increments the id by one. 
+  //Three operand argument -> if ? truthy condition : falsy
 
   const obj = {
     name: name,
@@ -120,14 +121,14 @@ const getFormInfo = (e) => {
 
 const expelNaughtyWizard = (e) => {
   const targetType = e.target.type;
-  const targetId = e.target.id;
+  const targetId = e.target.id; //event.target.tag of what we're targeting
 
   if (targetType === "button") {
     const studentIndex = students.findIndex( //defining that target id as our student id
       (student) => student.id === targetId
     );
     let ousted = students.splice(studentIndex, 1); //removes selected student (found by index)
-    darkArmy.push(...ousted); //pushes that student to dark army array using spread operator
+    darkArmy.push(...ousted); //pushes that student to dark army array using spread operator -> this will include all elements of the array
   }
   generateNewStudentCard(students);
   badBin(darkArmy);
