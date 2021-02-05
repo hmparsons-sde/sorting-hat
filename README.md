@@ -12,15 +12,14 @@ Project: https://github.com/hmparsons-sde/sorting-hat
 
 **USER STORY**
 
-The user (ostensibly a Harry Potter fan) can enter their name into the sorting form and a card will generate, randomly assigning the user to a Hogwarts House. The user also has the option to expel any naughty students to Voldyman's army. 
+The user (ostensibly a Harry Potter fan) can enter their name into the sorting form and a card will generate, randomly assigning the user to a Hogwarts House. The user also has the option to expel any naughty students to the dark army. 
 
 **FEATURES**
 
-- Toggle Hide/Show Name Form
+- Generate name form
 - Student card generator
 - Random house assignment with matching card image of the house crest
-- Delete/Expel button which reassigns the selected student to a different container ("Voldyman's Army")
-- Navigation bar that allows the user to sort students by house
+- Delete/Expel button which reassigns the selected student to a different container ("Dark Army")
 
 **SCREENSHOTS**
 
